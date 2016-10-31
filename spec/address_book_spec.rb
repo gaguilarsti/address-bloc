@@ -43,7 +43,7 @@ RSpec.describe AddressBook do
     end
   end
 
-  # Test that AddressBook's .import_from_csv() mthod is working as expected
+  # Test that AddressBook's .import_from_csv() method is working as expected
   describe "#import_from_csv" do
     it "imports the correct number of entries" do
       #3
@@ -53,6 +53,47 @@ RSpec.describe AddressBook do
       # Check the size of the entries in AddressBook
       expect(book_size).to eq 5
     end
+
+    #****** START OF ASSIGNMENT 7 CONTENT ******
+    # ASSIGNMENT 7 - Checks that AddressBook's .import_from_csv() method is working as expected on entries_2.csv file
+
+    it "imports the correct number of entries" do
+      #3
+      book.import_from_csv("entries_2.csv")
+      book_size = book.entries.size
+      # Check the size of the entries in AddressBook
+      expect(book_size).to eq 3
+    end
+
+    it "imports the 1st entry" do
+      book.import_from_csv("entries_2.csv")
+      #check the first entry
+      entry_one = book.entries[0]
+
+      check_entry(entry_one, "Annie", "555-555-3457", "annie@anniemail.com")
+    end
+
+    it "imports the 2nd entry" do
+      book.import_from_csv("entries_2.csv")
+      #check the second entry
+      entry_two = book.entries[1]
+
+      check_entry(entry_two, "Charlie", "555-555-1234", "charlie@charliemail.com")
+    end
+
+    it "imports the 3rd entry" do
+      book.import_from_csv("entries_2.csv")
+      #check the third entry
+      entry_three = book.entries[2]
+
+      check_entry(entry_three, "Moses", "555-555-5678", "moses@mosesmail.com")
+
+    end
+
+
+
+    #****** END OF ASSIGNMENT 7 CONTENT ******
+
     # access the first entry in the array of entries that our AddressBook stores.
     it "imports the 1st entry" do
       book.import_from_csv("entries.csv")
