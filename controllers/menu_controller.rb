@@ -90,7 +90,7 @@ class MenuController
 
   def edit_entry(entry)
     #prompt the user to provide the updated values for the entry.
-    print: "Update name: "
+    print "Update name: "
     name = gets.chomp
     print "Updated phone number: "
     phone_number = gets.chomp
