@@ -49,4 +49,34 @@ class AddressBook
     @entries.delete(delete_entry)
 
   end
+
+# Search AddressBook for a specific entry by name
+  def binary_search(name)
+    # we save the index of the left most item in the array in a var named lower.
+    # and the index of the rightmost item in the array in upper.
+    lower = 0
+    upper = entries.length - 1
+
+    # we loop while our lower index is less than or equal to the upper index.
+    while lower <= upper
+      # we find the middle index by taking the sum of lower and upper and dividing it by two.
+      # then we retrieve the name of the entry at the middle index and store it in mid_name.
+      mid = (lower + upper) / 2
+      mid_name = entries[mid].name
+
+      # we compare the name that we are search for, name to the name of the middle index, mid_name.
+      # note - search is case sensitive.
+      if name == mid_name
+        return entries[mid]
+      elsif name < mid_name
+        upper = mid - 1
+      elsif name > mid_name
+        lower = mid + 1
+      end
+    end
+
+    #if we divide and conquer to the point where there is no match, we return nil.
+    return nil
+  end
+
 end
