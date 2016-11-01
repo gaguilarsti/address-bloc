@@ -50,7 +50,7 @@ class AddressBook
 
   end
 
-# Search AddressBook for a specific entry by name
+  # Search AddressBook for a specific entry by name
   def binary_search(name)
     # we save the index of the left most item in the array in a var named lower.
     # and the index of the rightmost item in the array in upper.
@@ -76,6 +76,18 @@ class AddressBook
     end
 
     #if we divide and conquer to the point where there is no match, we return nil.
+    return nil
+  end
+
+  #Iterative search for assignment 8
+  def iterative_search(name)
+    #do an interative search
+    @entries.each do |entry|
+      if entry.name == name
+        return entry
+      end
+    end
+    #return nil outside of the each loop if no entry is found.
     return nil
   end
 
