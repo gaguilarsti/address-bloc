@@ -15,7 +15,8 @@ class MenuController
     puts "2 - Create an entry"
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
-    puts "5 - Exit"
+    puts "5 - Delete all entries"
+    puts "6 - Exit"
     print "Enter your selection: "
 
     # Retrieve user input from the command line using gets.
@@ -39,6 +40,11 @@ class MenuController
        read_csv
        main_menu
      when 5
+       system "clear"
+       @address_book.nuke_entries
+       puts "All entries have been deleted."
+       main_menu
+     when 6
        puts "Good-bye!"
        # terminate the program using exit(0).  0 signals the program is exiting without an error.
        exit(0)
